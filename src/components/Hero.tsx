@@ -17,17 +17,17 @@ const Hero = () => {
                 minHeight: '90vh',
             }}
         >
-            <div className='w-[90%] flex pt-10 pb-5 gap-10 justify-around items-start lg:items-center flex-col lg:flex-row'>
-                <div className='flex flex-col items-start justify-around gap-20'>
+            <div className='w-[90%] flex py-10 gap-10 lg:justify-around items-start lg:items-center flex-col lg:flex-row'>
+                <div className='flex flex-col items-start justify-between gap-44'>
                     <div className='flex flex-col justify-center gap-20 '>
-                        <h1 className='text-5xl font-bold'>AFRIKAPRO 2024</h1>
+                        <h1 className='text-4xl sm:text-5xl font-bold'>
+                            AFRIKAPRO 2024
+                        </h1>
                         <button className='outline outline-1 py-2 px-10 w-fit text-lg hover:bg-[#000] duration-500 '>
                             2024 Entry Form {'->'}
                         </button>
                     </div>
-                    <div className='flex flex-wrap gap-5 overflow-x-auto'>
-                        {/* three images in row */}
-
+                    <div className='flex flex-wrap justify-center sm:justify-normal gap-5 overflow-x-auto'>
                         {[
                             {
                                 title: '2025 Shipment Dates',
@@ -57,10 +57,6 @@ const Hero = () => {
                                     alt='image'
                                     width={200}
                                     height={150}
-                                    // style={{
-                                    //     width: '200px',
-                                    //     height: '150px',
-                                    // }}
                                 />
                                 <h2 className='absolute top-8 left-5 text-xl'>
                                     {data.title}
@@ -99,7 +95,7 @@ const Hero = () => {
                         className='bg-black text-white w-full max-w-96 py-4 hover:bg-[#948573] duration-500 
                     '
                     >
-                        View Full Table {'->'}
+                        <Link href={'/table'}>View Full Table {'->'}</Link>
                     </button>
                 </div>
             </div>
