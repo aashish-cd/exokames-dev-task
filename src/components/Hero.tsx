@@ -2,6 +2,8 @@ import Image from 'next/image';
 import React from 'react';
 import { GiSouthAfricaFlag } from 'react-icons/gi';
 import Card from './sub-components/Card';
+import moment from 'moment';
+import Link from 'next/link';
 
 const Hero = () => {
     return (
@@ -12,6 +14,7 @@ const Hero = () => {
                     'url(https://img.freepik.com/premium-photo/people-wallking-blurred-background-wallpaper_846066-14.jpg)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
+                minHeight: '90vh',
             }}
         >
             <div className='w-[90%] flex pt-10 pb-5 gap-10 justify-around items-start lg:items-center flex-col lg:flex-row'>
@@ -22,19 +25,51 @@ const Hero = () => {
                             2024 Entry Form {'->'}
                         </button>
                     </div>
-                    <div className='flex gap-5 overflow-auto'>
+                    <div className='flex flex-wrap gap-5 overflow-x-auto'>
                         {/* three images in row */}
 
-                        {[1, 2, 3].map((i) => (
-                            <Image
+                        {[
+                            {
+                                title: '2025 Shipment Dates',
+                                date: new Date('2024/05/01'),
+                            },
+                            {
+                                title: '2024 season launch',
+                                date: new Date('2024/04/18'),
+                            },
+                            {
+                                title: 'Final dates announcement',
+                                date: new Date('2024/06/1'),
+                            },
+                        ].map((data, i) => (
+                            <Link
+                                href='/test'
                                 key={i}
-                                src={
-                                    'https://images.unsplash.com/photo-1575936123452-b67c3203c357?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D'
-                                }
-                                alt='people walking'
-                                width={200}
-                                height={150}
-                            />
+                                className='relative'
+                                style={{
+                                    width: '200px',
+                                }}
+                            >
+                                <Image
+                                    src={
+                                        'https://images.unsplash.com/photo-1575936123452-b67c3203c357?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D'
+                                    }
+                                    alt='image'
+                                    width={200}
+                                    height={150}
+                                    // style={{
+                                    //     width: '200px',
+                                    //     height: '150px',
+                                    // }}
+                                />
+                                <h2 className='absolute top-8 left-5 text-xl'>
+                                    {data.title}
+                                </h2>
+
+                                <p className=' absolute text-sm left-5 bottom-2 opacity-70'>
+                                    {moment(data.date).fromNow()}
+                                </p>
+                            </Link>
                         ))}
                     </div>
                 </div>
