@@ -54,7 +54,10 @@ const Navbar = () => {
     ];
 
     return (
-        <div className='flex justify-between items-center w-full h-20 px-10 text-white bg-[#948573] sticky top-0 nav'>
+        <div
+            className='flex justify-between items-center w-full h-20 px-10 text-white bg-[#948573] sticky top-0 nav'
+            style={{ zIndex: 11 }}
+        >
             <div>
                 <h1 className='text-3xl font-signature ml-2'>
                     <Link
